@@ -103,9 +103,11 @@ const icons = [
 
 console.log(icons);
 
-let selection = document.querySelector("select");
-let result = document.querySelector("result");
-
-selection.addEventListener("change", () => {
-  result.innerText = selection.options[selection.selectedIndex].text;
+icons.forEach((icon, index, array) => {
+  const cardElement = `
+        <div class="card">
+        <i class="${icon.family} ${icon.prefix} ${icon.name}"></i>
+        <p>${icon.name}</p>
+      </div>`;
+  document.querySelector(".cards").insertAdjacentHTML("beforeend", cardElement);
 });
